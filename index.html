@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Guess the Number</title>
+
+    <link
+        rel="stylesheet"
+        href="task1.css"
+    >
+
+    <script
+        src="task1.js"
+        defer
+    ></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+
+            <a href="index.html" class="navbar-brand">
+                Assignment 5
+            </a>
+
+            <div class="navbar-links">
+                <a href="index.html">Task 1</a>
+                <a href="task2.html">Task 2</a>
+                <a href="task3.html">Task 3</a>
+            </div>
+
+        </div>
+    </nav>
+
+    <main class="game-container">
+
+        <section class="game-card">
+
+            <header class="game-header">
+
+                <p class="game-label">
+                    NUMBER GAME
+                </p>
+
+                <h1>Guess the Number</h1>
+
+                <p class="instructions">
+                    I picked a whole number from
+                    <span id="minNumber"></span>
+                    to
+                    <span id="maxNumber"></span>.
+                    Try to guess it in
+                    <span id="maxAttempts"></span>
+                    attempts.
+                </p>
+
+            </header>
+
+
+            <section
+                class="stats"
+                aria-label="Game statistics"
+            >
+
+                <div class="stat">
+
+                    <span class="stat-label">
+                        Attempts
+                    </span>
+
+                    <strong id="attempts">
+                        0 / 10
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span class="stat-label">
+                        Remaining
+                    </span>
+
+                    <strong id="remaining">
+                        10
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <form
+                id="guessForm"
+                novalidate
+            >
+
+                <label for="guessInput">
+                    Enter your guess
+                </label>
+
+                <div class="guess-row">
+
+                    <input
+                        type="number"
+                        id="guessInput"
+                        name="guess"
+                        placeholder="1–100"
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="submit"
+                        id="guessButton"
+                    >
+                        Guess
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <p
+                id="message"
+                class="message neutral"
+                aria-live="polite"
+            >
+                Make your first guess!
+            </p>
+
+
+            <section class="history-section">
+
+                <h2>Previous guesses</h2>
+
+                <ul
+                    id="guessHistory"
+                    class="guess-history"
+                >
+                </ul>
+
+            </section>
+
+
+            <button
+                type="button"
+                id="restartButton"
+                class="restart-button"
+            >
+                New Game
+            </button>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

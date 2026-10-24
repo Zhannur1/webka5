@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Travel Planner Board</title>
+
+    <link
+        rel="stylesheet"
+        href="task2.css"
+    >
+
+    <script
+        src="task2.js"
+        defer
+    ></script>
+</head>
+
+<body>
+    <nav class="navbar">
+    <div class="navbar-container">
+
+        <a href="index.html" class="navbar-brand">
+            Assignment 5
+        </a>
+
+        <div class="navbar-links">
+            <a href="index.html">Task 1</a>
+            <a href="task2.html">Task 2</a>
+            <a href="task3.html">Task 3</a>
+        </div>
+
+    </div>
+</nav>
+
+    <main class="container">
+
+        <header class="page-header">
+
+            <p class="eyebrow">
+                TRAVEL PLANNER
+            </p>
+
+            <h1>Trip Preparation Board</h1>
+
+            <p>
+                Organize everything you need before your trip.
+            </p>
+
+        </header>
+
+
+        <section class="controls">
+
+            <div class="control">
+
+                <label for="searchInput">
+                    Search
+                </label>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search tasks"
+                >
+
+            </div>
+
+
+            <div class="control">
+
+                <label for="tagFilter">
+                    Category
+                </label>
+
+                <select id="tagFilter">
+
+                    <option value="all">
+                        All
+                    </option>
+
+                    <option value="transport">
+                        Transport
+                    </option>
+
+                    <option value="stay">
+                        Stay
+                    </option>
+
+                    <option value="documents">
+                        Documents
+                    </option>
+
+                    <option value="activities">
+                        Activities
+                    </option>
+
+                    <option value="packing">
+                        Packing
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="control">
+
+                <label for="sortSelect">
+                    Sort
+                </label>
+
+                <select id="sortSelect">
+
+                    <option value="default">
+                        Default
+                    </option>
+
+                    <option value="high">
+                        High priority first
+                    </option>
+
+                    <option value="low">
+                        Low priority first
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <section class="summary">
+
+            <div class="summary-item">
+
+                <span>Completed</span>
+
+                <strong id="completedCount">
+                    0 / 10
+                </strong>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span>Total budget</span>
+
+                <strong id="totalBudget">
+                    0 ₸
+                </strong>
+
+            </div>
+
+
+            <div class="progress-section">
+
+                <label for="progressBar">
+                    Trip preparation progress
+                </label>
+
+                <progress
+                    id="progressBar"
+                    max="100"
+                    value="0"
+                ></progress>
+
+                <span id="progressText">
+                    0% complete
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <p
+            id="message"
+            class="message"
+            aria-live="polite"
+        ></p>
+
+
+        <section
+            id="board"
+            class="board"
+        >
+
+            <section class="column">
+
+                <header class="column-header">
+
+                    <h2>To Do</h2>
+
+                    <span id="todoCount">
+                        0
+                    </span>
+
+                </header>
+
+                <div
+                    id="todoColumn"
+                    class="card-list"
+                ></div>
+
+            </section>
+
+
+            <section class="column">
+
+                <header class="column-header">
+
+                    <div>
+                        <h2>In Progress</h2>
+
+                        <p>
+                            Maximum 3 tasks
+                        </p>
+                    </div>
+
+                    <span id="progressCount">
+                        0
+                    </span>
+
+                </header>
+
+                <div
+                    id="progressColumn"
+                    class="card-list"
+                ></div>
+
+            </section>
+
+
+            <section class="column">
+
+                <header class="column-header">
+
+                    <h2>Done</h2>
+
+                    <span id="doneCount">
+                        0
+                    </span>
+
+                </header>
+
+                <div
+                    id="doneColumn"
+                    class="card-list"
+                ></div>
+
+            </section>
+
+        </section>
+
+
+        <p
+            id="emptyMessage"
+            class="empty-message"
+        ></p>
+
+    </main>
+
+</body>
+
+</html>

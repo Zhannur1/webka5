@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Ticket Builder</title>
+
+    <link
+        rel="stylesheet"
+        href="task3.css"
+    >
+
+    <script
+        src="task3.js"
+        defer
+    ></script>
+</head>
+
+<body>
+    <nav class="navbar">
+    <div class="navbar-container">
+
+        <a href="index.html" class="navbar-brand">
+            Assignment 5
+        </a>
+
+        <div class="navbar-links">
+            <a href="index.html">Task 1</a>
+            <a href="task2.html">Task 2</a>
+            <a href="task3.html">Task 3</a>
+        </div>
+
+    </div>
+</nav>
+
+    <main class="container">
+
+        <header class="page-header">
+            <p class="eyebrow">TRAVEL TICKETS</p>
+
+            <h1>Build Your Ticket</h1>
+
+            <p>
+                Choose your event and ticket details.
+                Your preview updates automatically.
+            </p>
+        </header>
+
+
+        <div
+            id="errorSummary"
+            class="error-summary"
+            tabindex="-1"
+            aria-live="assertive"
+            hidden
+        ></div>
+
+
+        <div class="layout">
+
+            <!-- FORM -->
+
+            <form id="ticketForm">
+
+                <!-- Event -->
+
+                <div class="field">
+
+                    <label for="event">
+                        Event
+                    </label>
+
+                    <select
+                        id="event"
+                        name="event"
+                        required
+                        aria-describedby="eventError"
+                    >
+                        <option value="">
+                            Choose an event
+                        </option>
+
+                        <option value="travel-expo">
+                            Astana Travel Expo
+                        </option>
+
+                        <option value="city-tour">
+                            City Tour
+                        </option>
+
+                        <option value="music-fest">
+                            Travel Music Fest
+                        </option>
+                    </select>
+
+                    <p
+                        id="eventError"
+                        class="field-error"
+                    ></p>
+
+                </div>
+
+
+                <!-- Date -->
+
+                <div class="field">
+
+                    <label for="date">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        min="2026-11-20"
+                        max="2026-12-20"
+                        required
+                        aria-describedby="dateError"
+                    >
+
+                    <p
+                        id="dateError"
+                        class="field-error"
+                    ></p>
+
+                </div>
+
+
+                <!-- Ticket type -->
+
+                <div class="field">
+
+                    <label for="ticketType">
+                        Ticket type
+                    </label>
+
+                    <select
+                        id="ticketType"
+                        name="ticketType"
+                        required
+                        aria-describedby="ticketTypeError"
+                    >
+                        <option value="">
+                            Choose ticket type
+                        </option>
+
+                        <option value="standard">
+                            Standard
+                        </option>
+
+                        <option value="student">
+                            Student
+                        </option>
+
+                        <option value="vip">
+                            VIP
+                        </option>
+                    </select>
+
+                    <p
+                        id="ticketTypeError"
+                        class="field-error"
+                    ></p>
+
+                </div>
+
+
+                <!-- Quantity -->
+
+                <div class="field">
+
+                    <label for="quantity">
+                        Quantity
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        min="1"
+                        max="6"
+                        step="1"
+                        required
+                        aria-describedby="quantityError"
+                    >
+
+                    <p
+                        id="quantityError"
+                        class="field-error"
+                    ></p>
+
+                </div>
+
+
+                <!-- Full name -->
+
+                <div class="field">
+
+                    <label for="fullName">
+                        Full name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        minlength="2"
+                        maxlength="40"
+                        required
+                        aria-describedby="fullNameError"
+                    >
+
+                    <p
+                        id="fullNameError"
+                        class="field-error"
+                    ></p>
+
+                </div>
+
+
+                <!-- Email -->
+
+                <div class="field">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        aria-describedby="emailError"
+                    >
+
+                    <p
+                        id="emailError"
+                        class="field-error"
+                    ></p>
+
+                </div>
+
+
+                <!-- Promo -->
+
+                <div class="field">
+
+                    <label for="promo">
+                        Promo code
+                        <span>(optional)</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="promo"
+                        name="promo"
+                        maxlength="20"
+                        aria-describedby="promoError"
+                    >
+
+                    <p
+                        id="promoError"
+                        class="field-error"
+                    ></p>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    Create Ticket
+                </button>
+
+            </form>
+
+
+            <!-- LIVE PREVIEW -->
+
+            <aside class="preview">
+
+                <p class="preview-label">
+                    LIVE PREVIEW
+                </p>
+
+                <h2 id="previewEvent">
+                    Choose an event
+                </h2>
+
+                <p>
+                    Date:
+                    <strong id="previewDate">—</strong>
+                </p>
+
+                <p>
+                    Ticket:
+                    <strong id="previewType">—</strong>
+                </p>
+
+                <p>
+                    Quantity:
+                    <strong id="previewQuantity">—</strong>
+                </p>
+
+                <p>
+                    Name:
+                    <strong id="previewName">—</strong>
+                </p>
+
+                <p>
+                    Discount:
+                    <strong id="previewDiscount">0%</strong>
+                </p>
+
+                <hr>
+
+                <p class="total">
+                    Total:
+                    <strong id="previewTotal">0 ₸</strong>
+                </p>
+
+                <p>
+                    Email:
+                    <strong id="previewEmail">—</strong>
+                </p>
+
+            </aside>
+
+        </div>
+
+
+        <!-- FINAL RESULT -->
+
+        <section
+            id="result"
+            class="result"
+            aria-live="polite"
+            hidden
+        ></section>
+
+    </main>
+
+</body>
+
+</html>
